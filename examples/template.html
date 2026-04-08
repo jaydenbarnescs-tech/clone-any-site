@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Clone Title Here</title>
+
+<!-- Tailwind via CDN — zero build step -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!--
+  Google Fonts. Replace these families with whatever the target site uses.
+  Tip: use a font finder extension or `document.fonts` in DevTools to
+  identify the exact families and weights on the source site.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ──────────────────────────────────────────
+     DESIGN TOKENS — edit these to match your target site
+     ────────────────────────────────────────── */
+  :root {
+    /* Palette — replace with extracted hex values */
+    --bg-primary:    #0a0a0a;
+    --bg-secondary:  #141414;
+    --bg-elevated:   #1e1e1e;
+
+    --text-primary:  #f5f5f5;
+    --text-secondary:#a0a0a0;
+    --text-muted:    #6b6b6b;
+
+    --accent:        #3b82f6;
+    --accent-bright: #60a5fa;
+    --accent-deep:   #1e40af;
+
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.15);
+
+    /* Typography */
+    --font-display:  'Playfair Display', Georgia, serif;
+    --font-body:     'Inter', system-ui, sans-serif;
+
+    /* Spacing scale (if the target uses a non-Tailwind scale) */
+    --space-xs:  4px;
+    --space-sm:  8px;
+    --space-md:  16px;
+    --space-lg:  32px;
+    --space-xl:  64px;
+    --space-2xl: 128px;
+
+    /* Elevation */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 20px 60px -20px rgba(0,0,0,0.6);
+
+    /* Radii */
+    --radius-sm: 4px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+  }
+
+  html, body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+  }
+
+  .font-display { font-family: var(--font-display); }
+
+  /* Example component classes — adapt per target */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover {
+    background: var(--accent-bright);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: background 0.2s;
+  }
+  .btn-ghost:hover { background: var(--bg-elevated); }
+</style>
+</head>
+<body>
+
+<!-- ─────────────── HEADER ─────────────── -->
+<header class="sticky top-0 z-50 backdrop-blur-md bg-black/60 border-b" style="border-color: var(--border-subtle)">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <a href="#" class="font-display text-2xl font-bold">Brand</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#features" class="text-sm hover:opacity-80 transition">Features</a>
+      <a href="#pricing" class="text-sm hover:opacity-80 transition">Pricing</a>
+      <a href="#about" class="text-sm hover:opacity-80 transition">About</a>
+      <a href="#" class="btn-primary text-sm">Get started</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ─────────────── HERO ─────────────── -->
+<section class="relative min-h-[80vh] flex items-center px-6 py-24">
+  <div class="max-w-5xl mx-auto text-center">
+    <p class="text-sm uppercase tracking-widest mb-6" style="color: var(--accent-bright)">
+      Tagline or eyebrow text
+    </p>
+    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      Your headline goes here
+    </h1>
+    <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto" style="color: var(--text-secondary)">
+      Subheadline — the one-sentence pitch that explains what the target site actually does.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+      <a href="#" class="btn-primary">Primary CTA</a>
+      <a href="#" class="btn-ghost">Secondary CTA</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── FEATURE GRID ─────────────── -->
+<section id="features" class="py-24 px-6" style="background: var(--bg-secondary)">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-center mb-4">Section heading</h2>
+    <p class="text-center mb-16 max-w-2xl mx-auto" style="color: var(--text-secondary)">
+      Short description of what this section covers.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Feature card pattern — duplicate as needed -->
+      <div class="p-8 rounded-2xl border" style="background: var(--bg-elevated); border-color: var(--border-subtle)">
+        <div class="w-12 h-12 rounded-lg mb-6" style="background: var(--accent)"></div>
+        <h3 class="font-display text-xl font-bold mb-3">Feature title</h3>
+        <p style="color: var(--text-secondary)">
+          Feature description. Replace with copy from the target site.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl border" style="background: var(--bg-elevated); border-color: var(--border-subtle)">
+        <div class="w-12 h-12 rounded-lg mb-6" style="background: var(--accent)"></div>
+        <h3 class="font-display text-xl font-bold mb-3">Feature title</h3>
+        <p style="color: var(--text-secondary)">
+          Feature description. Replace with copy from the target site.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl border" style="background: var(--bg-elevated); border-color: var(--border-subtle)">
+        <div class="w-12 h-12 rounded-lg mb-6" style="background: var(--accent)"></div>
+        <h3 class="font-display text-xl font-bold mb-3">Feature title</h3>
+        <p style="color: var(--text-secondary)">
+          Feature description. Replace with copy from the target site.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── CTA BAND ─────────────── -->
+<section class="py-24 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="font-display text-4xl md:text-6xl font-bold mb-6">Ready to dive in?</h2>
+    <p class="text-xl mb-10" style="color: var(--text-secondary)">
+      Closing pitch line goes here.
+    </p>
+    <a href="#" class="btn-primary">Final CTA</a>
+  </div>
+</section>
+
+<!-- ─────────────── FOOTER ─────────────── -->
+<footer class="border-t py-16 px-6" style="border-color: var(--border-subtle)">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12">
+    <div>
+      <div class="font-display text-xl font-bold mb-4">Brand</div>
+      <p class="text-sm" style="color: var(--text-muted)">Short tagline.</p>
+    </div>
+    <div>
+      <h4 class="text-xs uppercase tracking-widest mb-4" style="color: var(--text-muted)">Product</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:opacity-80">Features</a></li>
+        <li><a href="#" class="hover:opacity-80">Pricing</a></li>
+        <li><a href="#" class="hover:opacity-80">Docs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs uppercase tracking-widest mb-4" style="color: var(--text-muted)">Company</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:opacity-80">About</a></li>
+        <li><a href="#" class="hover:opacity-80">Blog</a></li>
+        <li><a href="#" class="hover:opacity-80">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs uppercase tracking-widest mb-4" style="color: var(--text-muted)">Legal</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:opacity-80">Terms</a></li>
+        <li><a href="#" class="hover:opacity-80">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto mt-12 pt-8 border-t text-sm text-center" style="border-color: var(--border-subtle); color: var(--text-muted)">
+    © 2026 Your Brand. Built with clone-any-site.
+  </div>
+</footer>
+
+</body>
+</html>
